@@ -1,0 +1,12 @@
+name: RandomGrowth
+main: com.yellowfortyfour.spigot.randomgrowth.RandomGrowthPlugin
+version: 0.0.1
+author: Fredrik Andersson (ProtonCavor)
+api-version: 1.14
+#commands:
+
+
+permissions:
+  randomgrowth.*:
+    description: Defaulting all to false
+    default: false
