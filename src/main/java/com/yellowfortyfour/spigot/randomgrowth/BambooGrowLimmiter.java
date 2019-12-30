@@ -29,7 +29,6 @@ public class BambooGrowLimmiter implements Listener {
     Block rootBlock = null;
 
     if (sourceBlock.getType() == Material.BAMBOO) {
-      Bukkit.getLogger().info("--- [BlockSpreadEvent] ---");
 
       final Location sourceLoc = sourceBlock.getLocation();
       final Location newLoc = newBlock.getLocation();
@@ -42,23 +41,16 @@ public class BambooGrowLimmiter implements Listener {
           break;
         }
       }
-      int plantLenght = newLoc.getBlockY() - rootLoc.getBlockY() + 1; // lenght incl. new block that is about to grow
+      int plantLenght = newLoc.getBlockY() - rootLoc.getBlockY() + 1; // length incl. new block that is about to grow
       rootBlock = world.getBlockAt(rootLoc);
 
-      Bukkit.getLogger().info("newBlock is at " + newLoc.toString());
-      Bukkit.getLogger().info("sourceBlock is at " + sourceLoc.toString());
-      Bukkit.getLogger().info("rootBlock is at " + rootLoc.toString());
-      Bukkit.getLogger().info("new plant lenght = " + plantLenght);
-
       if (plantLenght > getMaxHeight(rootBlock)) {
-        Bukkit.getLogger().info("plant to long, let's cancel the growth.");
         org.bukkit.block.data.type.Bamboo bambooBlockData = (org.bukkit.block.data.type.Bamboo) sourceBlock.getBlockData();
         bambooBlockData.setStage(1);
         sourceBlock.setBlockData(bambooBlockData);
 
         event.setCancelled(true);
       }
-      Bukkit.getLogger().info("--------------------------");
     }
   }
 
