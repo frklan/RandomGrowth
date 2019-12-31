@@ -5,11 +5,11 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/frklan/RandomGrowth/issues)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA-blue)](https://github.com/frklan/RandomGrowth/blob/master/LICENSE)
 
-A hacky way to get a bit more randomness in Bamboo plants in Minecraft
+A (now a bit less) hacky way to get a bit more randomness in Bamboo plants in Minecraft
 
-All Bamboo growth events are monitored and canceled when the plant reaches a random height. The maximum height is stored as meta data in the lowest block on each plant.
+All Bamboo growth events are monitored and canceled when the plant reaches a random height between 3 and 16 blocks, we'll also set the BlockData parameter Stage is set to '1' and Leaves are set to 'LARGE' on the topmost bamboo block. Setting Stage to '1' prohibits further growth.
 
-**Note** this is most probably not very efficient and I bet there is a better way to do this.
+**Note** The server will throw an java.lang.IllegalArgumentException if we spam the bamboo plant with bone meal; unless I misunderstand the traceback and the Minecraft server source code; the bone meal interaction is handled asynchronously and sometimes the action is trying to grow the block we just canceled. Is this a bug or what am I missing?  
 
 Be aware that the plugin might trash your server..
 
@@ -18,7 +18,7 @@ Be aware that the plugin might trash your server..
 ### Prerequisites
 
 * Java 8 SDK
-* Apached Maven
+* Apache Maven
 
 ### Compiling
 
